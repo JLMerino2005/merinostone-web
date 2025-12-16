@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Catálogo Completo | Merinostone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo | Merinostone</title>
     <link rel="stylesheet" href="estilos.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -15,14 +16,12 @@
         <p style="color: #ccc;">BAJA CALIFORNIA</p>
         <hr style="border: 1px solid #333; width: 60%; margin: 20px 0;">
         <h2 style="font-size: 1.2rem; color: white;">VERIFICACIÓN DE COBERTURA</h2>
-        <div style="background: rgba(0,0,0,0.8); padding: 15px; border: 1px solid #333; margin: 20px 0; width: 90%; max-width: 400px;">
-            <p style="color: var(--gold); font-weight: bold; margin: 0; letter-spacing: 1px;">
+        <div style="background: rgba(0,0,0,0.8); padding: 10px; border: 1px solid #333; margin: 15px 0; width: 90%;">
+            <p style="color: var(--gold); font-weight: bold; margin: 0; font-size: 0.9rem;">
                 TIJUANA · ROSARITO · TECATE · ENSENADA
             </p>
         </div>
-        <div style="display: flex; gap: 20px; justify-content: center;">
-            <button class="btn" onclick="confirmarUbicacion(true)">Confirmar</button>
-        </div>
+        <button class="btn" onclick="confirmarUbicacion(true)">Entrar al Sitio</button>
     </div>
 
     <nav>
@@ -38,8 +37,6 @@
         <a href="#cuarzo" class="cat-link">Cuarzo</a>
         <a href="#granito" class="cat-link">Granito</a>
         <a href="#marmol" class="cat-link">Mármol</a>
-        <a href="#cuarcita" class="cat-link">Cuarcita</a>
-        <a href="#aplicaciones" class="cat-link">Pisos</a>
         <a href="#cocinas" class="cat-link">Cocinas</a>
     </div>
 
@@ -47,23 +44,23 @@
         
         <div id="exclusivas" class="text-center" style="padding: 40px 0;" data-aos="fade-down">
             <h2 style="color: var(--gold);">Superficies Exclusivas</h2>
-            <p>Piezas únicas de importación.</p>
+            <p style="font-size: 0.9rem; color: #aaa;">Materiales de importación selecta.</p>
         </div>
 
         <div class="grid">
             <div class="card" data-aos="fade-up">
-                <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1596136932488-886986503c72?q=80&w=600&auto=format&fit=crop" alt="Onix"></div>
+                <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80" alt="Ónix"></div>
                 <div class="card-info">
                     <h3>Ónix Piña Translucido</h3>
-                    <p>Piedra semipreciosa retroiluminada.</p>
+                    <p>Piedra semipreciosa que permite el paso de la luz.</p>
                     <button class="btn" onclick="contactarVendedor('Ónix Piña')">Cotizar</button>
                 </div>
             </div>
             <div class="card" data-aos="fade-up">
-                <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1618221639257-2c5e53303c7e?q=80&w=600&auto=format&fit=crop" alt="Calacatta"></div>
+                <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1595515106967-46320579e0f6?auto=format&fit=crop&w=600&q=80" alt="Calacatta"></div>
                 <div class="card-info">
                     <h3>Mármol Calacatta Viola</h3>
-                    <p>Vetas moradas intensas.</p>
+                    <p>El rey de los mármoles italianos. Vetas intensas.</p>
                     <button class="btn" onclick="contactarVendedor('Calacatta Viola')">Cotizar</button>
                 </div>
             </div>
@@ -72,18 +69,18 @@
         <h2 id="cuarzo" class="section-header"><span>Colección Cuarzo</span></h2>
         <div class="grid">
             <div class="card" data-aos="zoom-in">
-                <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=600&auto=format&fit=crop" alt="Cuarzo"></div>
+                <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=600&auto=format&fit=crop" alt="Cuarzo Blanco"></div>
                 <div class="card-info">
                     <h3>Cuarzo Carrara</h3>
-                    <p>Tecnología antibacterial.</p>
+                    <p>Tecnología antibacterial, cero porosidad.</p>
                     <button class="btn" onclick="contactarVendedor('Cuarzo Carrara')">Ver Precios</button>
                 </div>
             </div>
             <div class="card" data-aos="zoom-in">
-                <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1628191012812-78d10d65427d?q=80&w=600&auto=format&fit=crop" alt="Gris"></div>
+                <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1628191012812-78d10d65427d?q=80&w=600&auto=format&fit=crop" alt="Cuarzo Gris"></div>
                 <div class="card-info">
                     <h3>Cuarzo Gris Oxford</h3>
-                    <p>Elegancia industrial.</p>
+                    <p>Elegancia industrial resistente.</p>
                     <button class="btn" onclick="contactarVendedor('Cuarzo Gris Oxford')">Ver Precios</button>
                 </div>
             </div>
@@ -92,10 +89,10 @@
         <h2 id="granito" class="section-header"><span>Granito Natural</span></h2>
         <div class="grid">
             <div class="card" data-aos="zoom-in">
-                <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop" alt="Negro"></div>
+                <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop" alt="Granito Negro"></div>
                 <div class="card-info">
                     <h3>Granito San Gabriel</h3>
-                    <p>Ideal para exteriores.</p>
+                    <p>Negro profundo texturizado para exteriores.</p>
                     <button class="btn" onclick="contactarVendedor('Granito San Gabriel')">Cotizar</button>
                 </div>
             </div>
@@ -103,7 +100,7 @@
                 <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=600&auto=format&fit=crop" alt="Titanium"></div>
                 <div class="card-info">
                     <h3>Granito Titanium</h3>
-                    <p>Vetas de alto movimiento.</p>
+                    <p>Vetas doradas y negras de alto movimiento.</p>
                     <button class="btn" onclick="contactarVendedor('Granito Titanium')">Cotizar</button>
                 </div>
             </div>
@@ -115,7 +112,7 @@
                 <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1595514020173-66b6ab5a6984?q=80&w=600&auto=format&fit=crop" alt="Santo Tomas"></div>
                 <div class="card-info">
                     <h3>Mármol Santo Tomás</h3>
-                    <p>El clásico nacional.</p>
+                    <p>El clásico nacional. Tono gris versátil.</p>
                     <button class="btn" onclick="contactarVendedor('Mármol Santo Tomás')">Cotizar</button>
                 </div>
             </div>
@@ -123,7 +120,7 @@
                 <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=600&auto=format&fit=crop" alt="Blue Roma"></div>
                 <div class="card-info">
                     <h3>Cuarcita Blue Roma</h3>
-                    <p>Dureza y belleza exótica.</p>
+                    <p>Dureza superior con belleza exótica.</p>
                     <button class="btn" onclick="contactarVendedor('Cuarcita Blue Roma')">Cotizar</button>
                 </div>
             </div>
@@ -141,14 +138,30 @@
             </div>
         </div>
 
+        <h2 id="fachadas" class="section-header"><span>Fachadas</span></h2>
+        <div class="app-grid">
+            <div class="app-card" style="grid-column: 1 / -1; height: 400px;" data-aos="zoom-in">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop">
+                <div class="app-title">Fachadas Ventiladas</div>
+            </div>
+        </div>
+
         <h2 id="cocinas" class="section-header"><span>Cocinas de Lujo</span></h2>
         <div class="grid">
              <div class="card" data-aos="fade-up">
                 <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1556909212-d5b604d0c90d?q=80&w=600&auto=format&fit=crop" alt="Cocina"></div>
                 <div class="card-info">
                     <h3>Cocinas Integrales</h3>
-                    <p>Cubiertas con cortes a 45°.</p>
+                    <p>Fabricación e instalación con cortes a 45°.</p>
                     <button class="btn" onclick="contactarVendedor('Proyecto Cocina Integral')">Asesoría</button>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=600&auto=format&fit=crop" alt="Comedor"></div>
+                <div class="card-info">
+                    <h3>Comedores de Piedra</h3>
+                    <p>Mesas a medida en mármol exótico.</p>
+                    <button class="btn" onclick="contactarVendedor('Mesa de Comedor')">Ver Diseños</button>
                 </div>
             </div>
         </div>
@@ -177,7 +190,7 @@
         <div class="contact-box">
             <i class="fas fa-mobile-alt icon-gold"></i>
             <h2 style="color: var(--gold); margin-bottom: 10px;">Atención Personalizada</h2>
-            <p>Hablemos de tu proyecto.</p>
+            <p>¿Tienes planos o medidas? Hablemos ahora.</p>
             <span class="phone-display">664 673 8412</span>
             <a href="https://wa.me/5216646738412?text=Hola,%20quiero%20cotizar%20un%20proyecto" class="btn-whatsapp-big" target="_blank">
                 <i class="fab fa-whatsapp"></i> Enviar Mensaje
