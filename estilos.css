@@ -132,17 +132,55 @@ nav {
     background: var(--bg-color); padding: 0 20px; color: var(--gold); font-family: 'Cinzel', serif; font-size: 1.5rem;
 }
 
-/* --- COMPARADOR ANTES/DESPUÉS --- */
-.comparison-section { position: relative; max-width: 900px; margin: 40px auto 80px auto; padding: 0 20px; }
-.img-comp-container { position: relative; height: 400px; overflow: hidden; border: 2px solid var(--gold); border-radius: 4px; }
-.img-comp-img { position: absolute; width: auto; height: 100%; overflow: hidden; }
-.img-comp-img img { display: block; height: 100%; width: 100%; object-fit: cover; }
+/* --- COMPARADOR ANTES/DESPUÉS (CORREGIDO PARA EVITAR PANTALLA NEGRA) --- */
+.comparison-section { 
+    position: relative; 
+    max-width: 900px; 
+    margin: 40px auto 80px auto; 
+    padding: 0 20px; 
+}
+
+.img-comp-container { 
+    position: relative; 
+    height: 400px; 
+    overflow: hidden; 
+    border: 2px solid var(--gold); 
+    border-radius: 4px; 
+    width: 100%; /* Corrección: Ocupar todo el ancho */
+}
+
+.img-comp-img { 
+    position: absolute; 
+    width: 100%; /* Corrección: Fondo completo */
+    height: 100%; 
+    overflow: hidden; 
+}
+
+.img-comp-img img { 
+    display: block; 
+    height: 100%; 
+    width: auto; 
+    min-width: 100%; /* Corrección: No deformar imagen */
+    max-width: none; 
+    object-fit: cover; 
+}
+
 .img-comp-slider {
-    position: absolute; z-index: 9; cursor: ew-resize;
-    width: 40px; height: 40px; background-color: var(--gold); border-radius: 50%;
-    top: 50%; left: 50%; transform: translate(-50%, -50%);
-    display: flex; align-items: center; justify-content: center;
-    border: 2px solid white; box-shadow: 0 0 10px black;
+    position: absolute; 
+    z-index: 9; 
+    cursor: ew-resize;
+    width: 40px; 
+    height: 40px; 
+    background-color: var(--gold); 
+    border-radius: 50%;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    border: 2px solid white; 
+    box-shadow: 0 0 10px black;
 }
 .img-comp-slider::before { content: '< >'; font-weight: 900; color: black; font-size: 14px; }
 
@@ -323,7 +361,7 @@ footer { text-align: center; padding: 40px; margin-top: 0; background: #000; col
     }
     #tijuana-lock p { font-size: 0.9rem; }
 
-    /* 5. COMPARADOR */
+    /* 5. COMPARADOR (Ajuste Móvil Corregido) */
     .img-comp-container {
         height: 250px;
     }
