@@ -710,3 +710,242 @@ footer { text-align: center; padding: 40px; margin-top: 0; background: #000; col
     .footer-center div { justify-content: center; }
     .footer-right { width: 100%; margin-top: 20px; }
 }
+/* --- TABLA COMPARATIVA --- */
+.table-responsive {
+    overflow-x: auto; /* Permite deslizar en celular si es muy ancha */
+}
+
+.material-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.material-table th, .material-table td {
+    padding: 15px;
+    border-bottom: 1px solid #333;
+    font-size: 0.95rem;
+}
+
+.material-table th {
+    background-color: #111;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    border-bottom: 2px solid var(--gold);
+}
+
+.material-table tr:hover {
+    background-color: #222;
+}
+
+.material-table td:first-child {
+    text-align: left;
+    font-weight: bold;
+    color: #fff;
+    background-color: #151515; /* Columna izquierda un poco más oscura */
+}
+
+/* Ajuste móvil */
+@media (max-width: 768px) {
+    .material-table th, .material-table td {
+        padding: 10px 5px;
+        font-size: 0.8rem;
+    }
+}
+/* --- SECCIÓN TIPS DE CUIDADO --- */
+.tips-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.tip-card {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-bottom: 3px solid var(--gold); /* Detalle elegante abajo */
+    padding: 30px;
+    width: 300px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.tip-card:hover {
+    transform: translateY(-5px);
+    background: #222;
+}
+
+.tip-card i {
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+
+.tip-card h3 {
+    color: white;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.tip-card p {
+    color: #ccc;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Ajuste móvil */
+@media (max-width: 768px) {
+    .tip-card { width: 100%; margin-bottom: 10px; }
+}
+/* --- COLECCIONES DESTACADAS (INDEX) --- */
+.collections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.collection-card {
+    position: relative;
+    height: 250px;
+    border: 1px solid #333;
+    overflow: hidden;
+    display: block;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.collection-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.collection-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4); /* Filtro oscuro */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s;
+}
+
+.collection-overlay h3 {
+    color: white;
+    font-size: 2rem;
+    margin: 0;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px black;
+    border-bottom: 2px solid var(--gold);
+}
+
+.collection-overlay span {
+    color: var(--gold);
+    margin-top: 10px;
+    font-weight: bold;
+    opacity: 0; /* Oculto al inicio */
+    transform: translateY(20px);
+    transition: 0.3s;
+}
+
+/* Efecto Hover */
+.collection-card:hover img {
+    transform: scale(1.1); /* Zoom en la foto */
+}
+.collection-card:hover .collection-overlay {
+    background: rgba(0,0,0,0.7); /* Se oscurece más */
+}
+.collection-card:hover span {
+    opacity: 1; /* Aparece el texto */
+    transform: translateY(0);
+}
+/* --- TRAYECTORIA / STATS --- */
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #000; /* Fondo negro puro para contraste */
+    padding: 60px 20px;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.stat-item {
+    margin: 20px;
+    min-width: 150px;
+}
+
+.stat-item i {
+    font-size: 2.5rem;
+    color: #555; /* Icono discreto */
+    margin-bottom: 15px;
+    display: block;
+}
+
+.stat-number {
+    display: block;
+    font-size: 3rem; /* Número gigante */
+    font-weight: 700;
+    color: var(--gold); /* Dorado */
+    font-family: 'Cinzel', serif;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.stat-text {
+    color: #fff;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* En celular, los ponemos en cuadrícula de 2x2 para ahorrar espacio */
+@media (max-width: 768px) {
+    .stats-container {
+        padding: 40px 10px;
+    }
+    .stat-item {
+        width: 40%; /* Dos por fila */
+        margin: 15px 0;
+    }
+    .stat-number {
+        font-size: 2rem;
+    }
+}
+/* --- SECCIÓN TIPS DE CUIDADO (NUEVO) --- */
+.tips-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+.tip-card {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-bottom: 3px solid var(--gold);
+    padding: 30px;
+    width: 300px;
+    text-align: center;
+    transition: 0.3s;
+}
+.tip-card:hover { transform: translateY(-5px); background: #222; }
+.tip-card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 15px; }
+.tip-card h3 { color: white; margin-bottom: 10px; font-size: 1.2rem; }
+.tip-card p { color: #ccc; font-size: 0.9rem; line-height: 1.5; }
+
+@media (max-width: 768px) {
+    .tip-card { width: 100%; margin-bottom: 10px; }
+}
