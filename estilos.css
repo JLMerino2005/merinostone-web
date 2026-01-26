@@ -8,11 +8,19 @@
 }
 
 body {
-    margin: 0;
-    font-family: 'Cinzel', serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    /* Mantenemos la fuente pero le decimos que no sea la versión delgada */
+    font-family: 'Raleway', sans-serif;
+    background-color: black;
+    color: #ffffff; 
+    font-weight: 500; 
+    line-height: 1.6;
+    letter-spacing: 0.5px;
     overflow-x: hidden;
+}
+p {
+    font-size: 1.05rem; /* Un pelito más grande */
+    text-shadow: 0px 0px 1px rgba(255,255,255,0.2); /* Un mini brillo */
+    opacity: 0.9;
 }
 
 h1, h2, h3 { letter-spacing: 1px; }
@@ -998,4 +1006,139 @@ footer { text-align: center; padding: 40px; margin-top: 0; background: #000; col
 
 @media (max-width: 768px) {
     .finish-card { width: 100%; margin-bottom: 15px; }
+}
+/* --- MODO CINE (LIGHTBOX) --- */
+.lightbox {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 99999; /* Encima de todo, incluso del gatekeeper */
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.95); /* Fondo casi negro */
+    backdrop-filter: blur(5px); /* Efecto borroso elegante */
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 900px;
+    max-height: 80vh;
+    object-fit: contain;
+    border: 2px solid var(--gold);
+    box-shadow: 0 0 50px rgba(212, 175, 55, 0.2);
+    animation-name: zoom;
+    animation-duration: 0.4s;
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-lightbox:hover { color: var(--gold); }
+
+/* Animación de Zoom */
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* Cursor de lupa para las imágenes */
+.card-img-wrap img, .collection-card img {
+    cursor: zoom-in;
+}
+/* --- SCROLLBAR DE LUJO --- */
+/* El riel (fondo) */
+::-webkit-scrollbar {
+    width: 12px; /* Ancho de la barra */
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0a; /* Fondo casi negro */
+}
+
+/* La barra que se mueve */
+::-webkit-scrollbar-thumb {
+    background: var(--gold); /* Color Dorado */
+    border-radius: 6px; /* Bordes redondos */
+    border: 3px solid #0a0a0a; /* Espacio para que se vea flotando */
+}
+
+/* Al pasar el mouse */
+::-webkit-scrollbar-thumb:hover {
+    background: #b5952f; /* Dorado un poco más oscuro */
+}/* --- ANIMACIÓN LATIDO WHATSAPP --- */
+@keyframes latido {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.whatsapp-float {
+    animation: latido 2s infinite; /* LATE CADA 2 SEGUNDOS */
+}
+
+.whatsapp-float:hover {
+    animation: none; /* SE DETIENE SI LE PONES EL MOUSE ENCIMA */
+    transform: scale(1.1); /* SE HACE UN POCO MÁS GRANDE */
+}
+/* --- TÍTULO PRINCIPAL (HERO) EN MAYÚSCULAS --- */
+.hero h1 {
+    text-transform: uppercase; /* Lo fuerza a MAYÚSCULAS */
+    letter-spacing: 4px;       /* Separamos las letras para que se vea IMPONENTE */
+    font-weight: 700;          /* Letra gruesa */
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.8); /* Sombra para que resalte sobre la foto */
+}
+/* --- EFECTO ORO REALISTA (METÁLICO) --- */
+.logo span, 
+.section-header span, 
+.hero h1 {
+    /* Creamos el degradado con varios tonos de dorado */
+    background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    
+    /* Recortamos el fondo para que solo se vea en las letras */
+    -webkit-background-clip: text;
+    background-clip: text;
+    
+    /* Hacemos la letra transparente para ver el oro de fondo */
+    color: transparent; 
+    
+    /* Animación opcional: hace que el brillo se mueva lentamente */
+    background-size: 200% auto;
+    animation: shine 5s linear infinite;
+}
+
+/* Animación del brillo recorriendo las letras */
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* --- NAVEGACIÓN SUAVE --- */
+html {
+    scroll-behavior: smooth;
 }

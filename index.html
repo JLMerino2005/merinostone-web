@@ -9,10 +9,14 @@
     <meta property="og:image" content="img/Merinostone.jpg">
 
     <title>Catálogo Completo | Merinostone</title>
+
+    <meta property="og:image" content="https://jlmerino2005.github.io/merinostone-web/img/Merinostone.jpg">
+    
     <link rel="stylesheet" href="estilos.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/jpeg" href="img/Merinostone.jpg">
 </head>
 <body>
 
@@ -250,5 +254,11 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>AOS.init({ duration: 1000, once: true });</script>
     <script src="script.js"></script>
+
+    <div id="lightbox" class="lightbox" onclick="cerrarCine()">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="imgDesplegada">
+        <div id="caption"></div>
+    </div>
 </body>
 </html>

@@ -1,17 +1,21 @@
+/* --- script.js CORREGIDO --- */
+
+// 1. EVENTO DE CARGA (PRELOADER / PANTALLA DE CARGA)
+// Esto hace que la pantalla negra desaparezca cuando el sitio termina de cargar
+window.addEventListener("load", function() {
+    const preloader = document.getElementById("preloader");
+    if (preloader) {
+        // Pequeña pausa de 0.5s para suavidad
+        setTimeout(() => {
+            preloader.classList.add("loaded");
+        }, 500);
+    }
+});
+
+// 2. INICIALIZACIÓN (Cuando el HTML ya está listo)
 document.addEventListener("DOMContentLoaded", function() {
     
-    // 1. INICIALIZAR LIBRERÍA DE ANIMACIONES (AOS)
-    // Verificamos si la librería cargó correctamente antes de usarla
-    if (typeof AOS !== 'undefined') {
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
-    }
-
-    // 2. VERIFICAR MEMORIA (LocalStorage - Lógica de Cliente)
-    // Nota de Seguridad: Esta validación es visual. En un entorno de alta seguridad,
-    // esto se debe validar por IP en el servidor (Backend).
+    // A. GATEKEEPER (Memoria de Zona)
     const accessGranted = localStorage.getItem("merinostone_access");
     const lockScreen = document.getElementById("tijuana-lock");
 
@@ -19,45 +23,89 @@ document.addEventListener("DOMContentLoaded", function() {
         lockScreen.style.display = "none";
     }
 
-    // 3. INICIAR COMPARADORES DE IMÁGENES (Si existen en la página)
-    initComparisons();
+    // B. LIBRERÍA DE ANIMACIONES (AOS)
+    if (typeof AOS !== 'undefined') {
+        AOS.init({ duration: 1000, once: true });
+    }
+
+    // C. INICIAR FUNCIONES VISUALES
+    initComparisons(); // Slider Antes/Después
+    initLightbox();    // Modo Cine
 });
 
-// --- FUNCIÓN 1: GATEKEEPER (VALIDACIÓN DE ZONA) ---
+// --- TUS FUNCIONES ---
+
+// FUNCIÓN 1: GATEKEEPER
 function validarZona(esLocal) {
     const lockScreen = document.getElementById("tijuana-lock");
-    
     if (esLocal) {
-        // Usuario confirma ubicación
         localStorage.setItem("merinostone_access", "granted");
-        
         if(lockScreen) {
             lockScreen.style.opacity = "0";
-            setTimeout(() => {
-                lockScreen.style.display = "none";
-            }, 500);
+            setTimeout(() => { lockScreen.style.display = "none"; }, 500);
         }
     } else {
-        // Usuario fuera de zona
         alert("Lo sentimos. Por el momento solo cubrimos Tijuana, Rosarito, Tecate y Ensenada.");
-        // Redirección
         window.location.href = "https://www.google.com"; 
     }
 }
 
-// --- FUNCIÓN 2: WHATSAPP SEGURO ---
-// PARCHE DE SEGURIDAD: Reverse Tabnabbing corregido.
+// FUNCIÓN 2: WHATSAPP SEGURO
 function contactarVendedor(producto) {
     const telefono = "5216646738412"; 
     const mensaje = `Hola Merinostone. Mi proyecto es en Baja California y me interesa cotizar: ${producto}.`;
     const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
-    
-    // CORRECCIÓN DE SEGURIDAD: 
-    // Se agregan 'noopener,noreferrer' para evitar que la página nueva tenga control sobre tu sitio.
     window.open(url, '_blank', 'noopener,noreferrer');
 }
 
-// --- FUNCIÓN 3: COMPARADOR DE IMÁGENES ---
+// FUNCIÓN 3: MENÚ CONTACTO (DROPDOWN)
+function toggleContacto() {
+    var dropdown = document.getElementById("contactoDropdown");
+    if (dropdown) dropdown.classList.toggle("show");
+}
+
+// Cerrar menú si dan clic fuera
+window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn') && !event.target.closest('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+            if (dropdowns[i].classList.contains('show')) dropdowns[i].classList.remove('show');
+        }
+    }
+}
+
+// FUNCIÓN 4: MODO CINE (LIGHTBOX) - CORREGIDO
+function initLightbox() {
+    const modal = document.getElementById('lightbox');
+    const modalImg = document.getElementById('imgDesplegada');
+    const captionText = document.getElementById('caption');
+    
+    // Seleccionamos SOLO imágenes de productos para no romper el menú
+    const images = document.querySelectorAll('.card-img-wrap img, .collection-card img');
+
+    if (modal && modalImg) {
+        images.forEach(img => {
+            img.addEventListener('click', function(e) {
+                // Si es una tarjeta de enlace (colección), prevenimos que navegue para ver la foto
+                if(this.parentElement.classList.contains('collection-card')) {
+                    e.preventDefault(); 
+                }
+                
+                modal.style.display = "block";
+                modalImg.src = this.src; 
+                captionText.innerHTML = this.alt || "Merinostone Baja California";
+            });
+        });
+    }
+}
+
+// Función para cerrar el cine desde el botón X
+function cerrarCine() {
+    const modal = document.getElementById('lightbox');
+    if (modal) modal.style.display = "none";
+}
+
+// FUNCIÓN 5: COMPARADOR ANTES/DESPUÉS (SLIDER)
 function initComparisons() {
     var x, i;
     x = document.getElementsByClassName("img-comp-overlay");
@@ -84,18 +132,14 @@ function initComparisons() {
         window.addEventListener("touchend", slideFinish);
 
         function slideReady(e) {
-            e.preventDefault();
-            clicked = 1;
+            e.preventDefault(); clicked = 1;
             window.addEventListener("mousemove", slideMove);
             window.addEventListener("touchmove", slideMove);
         }
-        function slideFinish() {
-            clicked = 0;
-        }
+        function slideFinish() { clicked = 0; }
         function slideMove(e) {
-            var pos;
             if (clicked == 0) return false;
-            pos = getCursorPos(e);
+            var pos = getCursorPos(e);
             if (pos < 0) pos = 0;
             if (pos > w) pos = w;
             slide(pos);
@@ -115,45 +159,23 @@ function initComparisons() {
     }
 }
 
-// --- FUNCIÓN 4: MENÚ DESPLEGABLE DE CONTACTO ---
-function toggleContacto() {
-    var dropdown = document.getElementById("contactoDropdown");
-    if (dropdown) {
-        dropdown.classList.toggle("show");
-    }
-}
-
-// Cerrar el menú si se hace clic fuera
-window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn') && !event.target.closest('.dropbtn')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        for (var i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-            }
-        }
-    }
-}
-
-// --- FUNCIÓN 5: BOTÓN VOLVER ARRIBA ---
+// FUNCIÓN 6: BOTÓN VOLVER ARRIBA
 let mybutton = document.getElementById("myBtn");
-
-// Solo activamos el evento si el botón existe en la página actual
 if (mybutton) {
-    window.onscroll = function() { scrollFunction() };
+    window.onscroll = function() {
+        if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    };
 }
-
-function scrollFunction() {
-    if (!mybutton) return; // Seguridad extra
-    
-    if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
-        mybutton.style.display = "block";
-    } else {
-        mybutton.style.display = "none";
+function topFunction() { 
+    window.scrollTo({top: 0, behavior: 'smooth'}); 
+}
+// --- PROTECCIÓN CONTRA ROBO DE IMÁGENES ---
+document.addEventListener('contextmenu', function(e) {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault(); // Bloquea el clic derecho solo en fotos
     }
-}
-
-function topFunction() {
-    window.scrollTo({top: 0, behavior: 'smooth'});
-}
+});
