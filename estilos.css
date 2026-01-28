@@ -1142,3 +1142,19 @@ footer { text-align: center; padding: 40px; margin-top: 0; background: #000; col
 html {
     scroll-behavior: smooth;
 }
+/* --- MENÚ CAMALEÓN --- */
+nav {
+    /* Estado inicial: Transparente para que luzca la foto */
+    background: transparent !important; 
+    transition: all 0.4s ease-in-out; /* Animación suave */
+    border-bottom: 1px solid transparent; /* Sin borde al inicio */
+    padding: 30px 50px; /* Más alto al inicio */
+}
+
+/* Estado "Scrolleado": Negro, compacto y con borde dorado */
+nav.nav-scrolled {
+    background: rgba(0,0,0,0.95) !important; /* Casi negro sólido */
+    padding: 15px 50px; /* Se hace más delgadito */
+    border-bottom: 1px solid #333;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}

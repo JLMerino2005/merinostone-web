@@ -31,7 +31,18 @@ document.addEventListener("DOMContentLoaded", function() {
     // C. INICIAR FUNCIONES VISUALES
     initComparisons(); // Slider Antes/Después
     initLightbox();    // Modo Cine
+    
+    // D. INICIAR MENÚ CAMALEÓN
+    window.addEventListener('scroll', function() {
+        const nav = document.querySelector('nav');
+        if (window.scrollY > 50) { // Si bajamos más de 50px
+            nav.classList.add('nav-scrolled');
+        } else {
+            nav.classList.remove('nav-scrolled');
+        }
+    });
 });
+
 
 // --- TUS FUNCIONES ---
 
