@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo Completo | Merinostone</title>
+    <title>Merinostone | Granito y Cuarzo en Tijuana y Rosarito</title>
     <meta property="og:image" content="https://jlmerino2005.github.io/merinostone-web/img/Merinostone.jpg">
     <link rel="stylesheet" href="estilos.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
@@ -12,6 +12,13 @@
     <link rel="icon" type="image/jpeg" href="img/Merinostone.jpg">
 </head>
 <body>
+
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-logo">Merino<span>stone</span></div>
+            <div class="loader-line"></div>
+        </div>
+    </div>
 
     <div id="tijuana-lock">
         <h1 style="color: #d4af37;">MERINOSTONE</h1>
@@ -387,14 +394,21 @@
         </div>
     </footer>
 
+    <div id="lightbox" class="lightbox" onclick="cerrarCine()">
+        <span class="close-lightbox">×</span>
+        <img class="lightbox-content" id="imgDesplegada">
+        <div id="caption"></div>
+    </div>
+    
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>AOS.init();</script>
     <script src="script.js"></script>
 
-    <div id="lightbox" class="lightbox" onclick="cerrarCine()">
-        <span class="close-lightbox">&times;</span>
-        <img class="lightbox-content" id="imgDesplegada">
-        <div id="caption"></div>
-    </div>
 </body>
+<div id="progress-container">
+    <div id="progress-bar"></div>
+</div>
 </html>

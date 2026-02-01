@@ -6,9 +6,8 @@
     
     <meta name="description" content="Catálogo exclusivo de Merinostone Baja California. Mármol, Granito, Cuarzo y Cocinas Integrales. Instalación en Tijuana, Rosarito y Ensenada.">
     <meta name="keywords" content="marmol tijuana, granito baja california, cocinas integrales, cuarzo, merinostone, cubiertas de cocina">
-    <meta property="og:image" content="img/Merinostone.jpg">
-
-    <title>Catálogo Completo | Merinostone</title>
+    
+    <title>Merinostone | Granito y Cuarzo en Tijuana y Rosarito</title>
 
     <meta property="og:image" content="https://jlmerino2005.github.io/merinostone-web/img/Merinostone.jpg">
     
@@ -18,7 +17,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/jpeg" href="img/Merinostone.jpg">
 </head>
+
 <body>
+    <div id="progress-container">
+    <div id="progress-bar"></div>
+</div>
+
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-logo">Merino<span>stone</span></div>
+            <div class="loader-line"></div>
+        </div>
+    </div>
 
     <div id="tijuana-lock">
         <h1 style="color: #d4af37; margin-bottom: 0;">MERINOSTONE</h1>
@@ -73,6 +83,28 @@
 
     <div class="video-showcase" data-aos="zoom-in">
         <video src="videos/video_nuevo.mp4" autoplay muted loop playsinline></video>
+    </div>
+
+    <div class="trust-bar" data-aos="fade-up">
+        
+        <div class="trust-item">
+            <i class="fas fa-medal trust-icon"></i>
+            <h3>Garantía de Calidad</h3>
+            <p>Piedra natural de 1ra calidad.</p>
+        </div>
+
+        <div class="trust-item">
+            <i class="fas fa-stopwatch trust-icon"></i>
+            <h3>Instalación Rápida</h3>
+            <p>Tu cocina lista en tiempo récord.</p>
+        </div>
+
+        <div class="trust-item">
+            <i class="fas fa-file-contract trust-icon"></i>
+            <h3>Contrato Formal</h3>
+            <p>Seguridad y seriedad en tu trato.</p>
+        </div>
+
     </div>
 
     <section class="container" style="margin-top: 60px;" data-aos="fade-up">
@@ -131,22 +163,30 @@
     <div class="stats-container" data-aos="fade-up">
         <div class="stat-item">
             <i class="fas fa-calendar-check"></i>
-            <span class="stat-number">15+</span>
+            <div style="font-size: 2.5rem; font-weight: bold; color: var(--gold);">
+                <span class="num" data-val="15">0</span>+
+            </div>
             <span class="stat-text">Años de Experiencia</span>
         </div>
         <div class="stat-item">
             <i class="fas fa-kitchen-set"></i>
-            <span class="stat-number">850+</span>
+            <div style="font-size: 2.5rem; font-weight: bold; color: var(--gold);">
+                <span class="num" data-val="850">0</span>+
+            </div>
             <span class="stat-text">Cocinas Instaladas</span>
         </div>
         <div class="stat-item">
             <i class="fas fa-map-marked-alt"></i>
-            <span class="stat-number">4</span>
+            <div style="font-size: 2.5rem; font-weight: bold; color: var(--gold);">
+                <span class="num" data-val="4">0</span>
+            </div>
             <span class="stat-text">Ciudades Atendidas</span>
         </div>
         <div class="stat-item">
             <i class="fas fa-smile"></i>
-            <span class="stat-number">100%</span>
+            <div style="font-size: 2.5rem; font-weight: bold; color: var(--gold);">
+                <span class="num" data-val="100">0</span>%
+            </div>
             <span class="stat-text">Garantía de Satisfacción</span>
         </div>
     </div>
@@ -251,14 +291,18 @@
         </div>
     </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init({ duration: 1000, once: true });</script>
-    <script src="script.js"></script>
-
     <div id="lightbox" class="lightbox" onclick="cerrarCine()">
-        <span class="close-lightbox">&times;</span>
+        <span class="close-lightbox">×</span>
         <img class="lightbox-content" id="imgDesplegada">
         <div id="caption"></div>
     </div>
+    
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
+    <script src="script.js"></script>
+
 </body>
 </html>

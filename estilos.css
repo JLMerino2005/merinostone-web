@@ -1158,3 +1158,141 @@ nav.nav-scrolled {
     border-bottom: 1px solid #333;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
+/* --- SELECCIÓN DE TEXTO DE LUJO --- */
+::selection {
+    background: var(--gold); /* Fondo Dorado */
+    color: #000;             /* Letra Negra */
+    text-shadow: none;
+}
+
+/* Para navegadores Firefox */
+::-moz-selection {
+    background: var(--gold);
+    color: #000;
+    text-shadow: none;
+}
+/* --- BARRA DE CONFIANZA (TRUST BADGES) --- */
+.trust-bar {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background: #111; /* Fondo un poco más claro que el negro */
+    padding: 50px 20px;
+    margin: 60px 0;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+
+.trust-item {
+    text-align: center;
+    max-width: 300px;
+    margin: 20px;
+    padding: 20px;
+    transition: transform 0.3s;
+}
+
+.trust-item:hover {
+    transform: translateY(-10px); /* Flota al pasar el mouse */
+}
+
+.trust-icon {
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+    /* Efecto de brillo en el icono */
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+.trust-item h3 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.trust-item p {
+    color: #888;
+    font-size: 0.9rem;
+}
+/* --- PUNTERO PERSONALIZADO (CURSOR) --- */
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--gold);
+}
+
+.cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--gold);
+}
+
+.cursor-dot, 
+.cursor-outline {
+    position: fixed;
+    top: 0; 
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 999999; /* Encima de todo */
+    pointer-events: none; /* Deja dar clic a través de él */
+}
+
+/* Ocultamos el puntero normal en pantallas grandes */
+@media (min-width: 1024px) {
+    body {
+        cursor: none; /* Adiós flecha blanca */
+    }
+    a, button, .btn, .card {
+        cursor: none; /* Mantenemos el efecto en enlaces */
+    }
+}
+
+/* En celulares no se usa (porque no hay mouse) */
+@media (max-width: 1024px) {
+    .cursor-dot, .cursor-outline {
+        display: none;
+    }
+}
+/* --- EFECTO CRISTAL (GLASSMORPHISM) --- */
+.card, .testimonial-card, .contact-box, .address-card {
+    /* Fondo negro pero transparente (70%) */
+    background: rgba(20, 20, 20, 0.7) !important;
+    
+    /* El truco mágico: desenfoca lo que hay detrás */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    /* Borde muy sutil para simular el grosor del vidrio */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    /* Sombra suave para dar profundidad */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Al pasar el mouse, el cristal se ilumina un poco */
+.card:hover, .testimonial-card:hover {
+    background: rgba(40, 40, 40, 0.8) !important;
+    border: 1px solid var(--gold);
+    transform: translateY(-5px); /* Flota un poquito */
+}
+/* --- BARRA DE PROGRESO (SCROLL) --- */
+#progress-container {
+    position: fixed; /* Se queda pegada arriba aunque bajes */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px; /* Grosor de la barra */
+    background: transparent; /* Fondo invisible */
+    z-index: 999999; /* ¡Importante! Encima de todo */
+}
+
+#progress-bar {
+    height: 100%;
+    background: var(--gold); /* Usa tu color dorado */
+    width: 0%; /* JS lo va a rellenar */
+    box-shadow: 0 0 15px var(--gold); /* Efecto de luz neón */
+    transition: width 0.1s linear; /* Para que no se mueva a tirones */
+    border-radius: 0 4px 4px 0; /* Punta suavizada */
+}

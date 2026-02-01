@@ -190,3 +190,84 @@ document.addEventListener('contextmenu', function(e) {
         e.preventDefault(); // Bloquea el clic derecho solo en fotos
     }
 });
+// --- CONTADORES ANIMADOS (NÚMEROS MÁGICOS) ---
+let valueDisplays = document.querySelectorAll(".num");
+let interval = 2000; // Duración de la animación (2 segundos)
+
+// Solo activamos la animación cuando la sección es visible
+let observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            let startValue = 0;
+            let endValue = parseInt(entry.target.getAttribute("data-val"));
+            let duration = Math.floor(interval / endValue);
+            let counter = setInterval(function () {
+                startValue += 1;
+                entry.target.textContent = startValue;
+                if (startValue == endValue) {
+                    clearInterval(counter);
+                }
+            }, duration);
+            observer.unobserve(entry.target); // Solo anima una vez
+        }
+    });
+});
+
+valueDisplays.forEach((label) => {
+    observer.observe(label);
+});// --- LÓGICA DEL PUNTERO DE LUJO ---
+const cursorDot = document.querySelector("[data-cursor-dot]");
+const cursorOutline = document.querySelector("[data-cursor-outline]");
+
+if(cursorDot && cursorOutline) {
+    window.addEventListener("mousemove", function(e) {
+        const posX = e.clientX;
+        const posY = e.clientY;
+
+        // El punto sigue al mouse instantáneamente
+        cursorDot.style.left = `${posX}px`;
+        cursorDot.style.top = `${posY}px`;
+
+        // El círculo grande te sigue con un poco de retraso (efecto elegante)
+        cursorOutline.animate({
+            left: `${posX}px`,
+            top: `${posY}px`
+        }, { duration: 500, fill: "forwards" });
+    });
+}
+/* --- FUNCIÓN MAESTRA DE SCROLL (CONTROL TOTAL) --- */
+window.onscroll = function() {
+    controlarScroll();
+};
+
+function controlarScroll() {
+    // 1. CÁLCULO PARA LA BARRA DE PROGRESO
+    let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let scrolled = (winScroll / height) * 100;
+    
+    let barra = document.getElementById("progress-bar");
+    if(barra) {
+        barra.style.width = scrolled + "%";
+    }
+
+    // 2. LÓGICA DEL BOTÓN "VOLVER ARRIBA"
+    let mybutton = document.getElementById("myBtn");
+    if (mybutton) {
+        if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // 3. LÓGICA DEL MENÚ CAMALEÓN
+    const nav = document.querySelector('nav');
+    if (nav) {
+        if (window.scrollY > 50) {
+            nav.classList.add('nav-scrolled');
+        } else {
+            nav.classList.remove('nav-scrolled');
+        }
+    }
+}
