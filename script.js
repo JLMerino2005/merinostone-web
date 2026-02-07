@@ -271,3 +271,18 @@ function controlarScroll() {
         }
     }
 }
+// --- SALUDO AUTOMÁTICO WHATSAPP ---
+setTimeout(() => {
+    const bubble = document.getElementById('whatsapp-bubble');
+    if(bubble) {
+        bubble.classList.add('show');
+    }
+}, 3000); // 3000 milisegundos = 3 segundos
+// --- TÍTULO DINÁMICO (RETENCIÓN) ---
+let docTitle = document.title; // Guardamos el título original
+window.addEventListener("blur", () => {
+    document.title = "👋 ¡No olvides tu cocina!";
+});
+window.addEventListener("focus", () => {
+    document.title = docTitle; // Regresa al original cuando vuelve
+});
