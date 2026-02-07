@@ -1516,3 +1516,58 @@ nav.nav-scrolled {
     visibility: visible;
     transform: translateX(0);
 }
+/* --- CORRECCIÓN MAESTRA PARA CELULARES --- */
+
+/* 1. Bloqueamos que la página se mueva a los lados */
+html, body {
+    overflow-x: hidden; /* Corta cualquier cosa que se salga a los lados */
+    width: 100%;
+    position: relative;
+}
+
+/* 2. Ajustes específicos para pantallas chicas (Celulares) */
+@media (max-width: 768px) {
+    
+    /* Forzamos a que todos los contenedores respeten los márgenes */
+    .container {
+        width: 100% !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        box-sizing: border-box;
+    }
+
+    /* Hacemos que las rejillas (Grids) se pongan en 1 sola columna */
+    .grid, .app-grid, .collections-grid, .finishes-grid, .tips-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important; /* Una sola columna */
+        gap: 30px;
+        width: 100% !important;
+        margin: 0 auto;
+    }
+
+    /* Arreglamos la tabla de comparativa para que tenga scroll propio */
+    .table-responsive {
+        width: 100%;
+        overflow-x: auto; /* Si la tabla es grande, solo la tabla se mueve, no la página */
+        -webkit-overflow-scrolling: touch;
+        display: block;
+    }
+
+    /* Ajustamos los títulos grandes para que no rompan la pantalla */
+    h1, h2 {
+        font-size: 1.8rem !important; /* Letra más chica en celular */
+        word-wrap: break-word; /* Si una palabra es muy larga, la baja */
+    }
+
+    /* Ajustamos el video y las fotos */
+    img, video, iframe {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    /* Arreglamos la sección de Cocinas específicamente */
+    .card {
+        width: 100% !important; /* Que ocupe todo el ancho disponible */
+        margin-bottom: 20px;
+    }
+}
